@@ -1,0 +1,16 @@
+Consider that you have a file named bdad.sql with the following content:
+<image>
+If you run twice the command .read bdad.sql :
+
+Alternatives:
+A. The result is an error because the table Player doesn't have a primary key.
+B. Each one of the tables Country and Player will have a single row.
+C. The result is an error due to the delete action associated to the foreign key.
+D. Each one of the tables Country and Player will have two rows with the same content.
+E. The table Country will have a single row and the table Player will have 2 rows with the same content (because it hasn't a predefined primary key).
+
+Explanation:
+The result is an error because, when you run the command .read bdad.sql for the second time, the statement DROP TABLE IF EXISTS Country won't be able to delete the row with (idCountry=1, name="Portugal"), due to the fact that Portugal is associated to a Player and the action ON DELETE RESTRICT prohibit that operation on a parent key, when there are child keys mapped to it. In that case, this is the result:
+<image>
+
+Correct: C

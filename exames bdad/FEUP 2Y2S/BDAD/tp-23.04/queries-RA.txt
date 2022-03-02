@@ -1,0 +1,69 @@
+-- 1 Quais os números dos alunos?
+-- π nr (Aluno)
+
+
+-- 2 Qual o código e designação das cadeiras do curso 'AC'?
+-- π cod, design (σ curso='AC' (Cadeira))
+
+
+-- 3 Existem nomes comuns a alunos e profs? Quais?
+-- π Nome (Aluno ⨝ Prof)
+
+
+-- 4 Quais os nomes específicos dos alunos, i.e., que nenhum professor tem?
+-- π Nome (Aluno) - π Nome (Prof)
+
+
+-- 5 Quais os nomes das pessoas relacionadas com a faculdade?
+-- π Nome (Aluno) ∪ π Nome (Prof)
+
+
+-- 6 Quais os nomes dos alunos que fizeram alguma prova de 'TS1'?
+-- π Nome (Aluno ⨝ σ cod='TS1' (Prova))
+-- π Nome (σ cod='TS1' (Aluno ⨝ Prova))
+-- π Nome (Aluno ⨝ Aluno.nr = Prova.nr ∧ Prova.cod = 'TS1' (Prova))
+
+
+-- 7 Quais os nomes dos alunos com inscrição no cruso 'IS'?
+-- π Nome (Aluno ⨝ Aluno.nr = Prova.nr ∧ curso='IS' (Cadeira ⨝ Prova))
+
+
+-- 8 Qual a relação dos nomes dos alunos que concluíram o curso 'IS'?
+-- π Nome, cod (σ Prova.nota >= 9.5 (Aluno ⨝ Prova)) / π cod σ curso='IS' (Cadeira)
+-- π Nome, cod (Aluno ⨝ Prova.nota >= 9.5 ∧ Aluno.nr = Prova.nr Prova) / π cod (σ curso='IS' (Cadeira))
+
+
+-- 9 Qual a nota máxima existente nas provas?
+-- γ max(nota) -> notaMax (Prova)
+
+
+-- 10 Qual a nota média das provas de BD?
+-- γ avg(nota) -> avgBD (σ cod='BD' (Prova))
+
+
+-- 11 Qual é o número de alunos? 
+-- γ count(*) -> Alunos (Aluno)
+
+
+-- 12 Qual é o número de cadeiras de cada curso?
+-- γ curso; count(cod) -> nrCadeiras (Cadeira)
+
+
+-- 13 Qual é o número de provas de cada aluno?
+-- π Nome, nrProvas ( Aluno ⨝ γ nr; count(*) -> nrProvas (Prova))
+
+
+-- 14 Qual a média do número de provas por aluno?
+-- γ avg(nrProvas) -> avgNumProvas (γ nr; count(*) -> nrProvas (Prova))
+
+
+-- 15 Qual o nome e respetiva média atual (cadeiras feitas, em qualquer curso) de cada aluno?
+-- π Nome, media ((γ nr; avg(nota) -> media (γ nr, cod; max(nota) -> nota (σ nota >= 9.5 Prova))) ⨝ Aluno)
+
+
+-- 16 Qual a nota máxima de cada cadeira e qual o aluno que a obteve?
+-- τ cod π Nome, cod, nota (Aluno ⨝ Prova ⨝ γ cod; max(nota) -> nota (Prova))
+
+
+-- 17 Obtenha a relação ordenada por curso dos nomes dos alunos formados.
+-- τ curso (π Nome, curso, cod ( Aluno ⨝ σ nota >= 9.5 Prova ⨝ Cadeira) / π cod (σ curso='IS' (Cadeira)) ∪ π Nome, curso, cod ( Aluno ⨝ σ nota >= 9.5 Prova ⨝ Cadeira) / π cod (σ curso='AC' (Cadeira)))

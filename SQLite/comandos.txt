@@ -1,0 +1,7 @@
+.read -> lê código para de um ficheiro (como se corresse o código)
+.schema -> Vai buscar a última criação de tabela (só o statement)
+.dump -> vai buscar a criação e a população da tabela
+.output -> default output
+.output file -> muda o output para um ficheiro especificado
+.open file -> para abrir um ficheiro
+PRAGMA foreign_keys=ON;

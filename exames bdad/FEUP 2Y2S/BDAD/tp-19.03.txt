@@ -1,0 +1,54 @@
+CREATE TABLE Team(
+    name text primary key, 
+    country text
+);
+
+CREATE TABLE Aircraft(
+    model text primary key, 
+    horsepower integer, 
+    topspeed integer, 
+    width real, 
+    height real, 
+    weight real
+);
+
+CREATE TABLE Pilot(
+    num integer primary key, 
+    firstname text, 
+    surname text, 
+    nationality text, 
+    birthday date, 
+    name text references Team(name), 
+    model text references Aircraft(model)
+);
+
+CREATE TABLE Race(
+    location text, 
+    edition integer, 
+    country text, 
+    date date unique, 
+    gates integer, 
+    eliminations integer, 
+    constraint racePK primary key(location,edition)
+);
+
+CREATE TABLE Participation(
+    num integer,
+    location text,
+    edition integer,
+    trainingtime integer check(trainingtime > 0),	
+    trainingpos integer check(trainingpos >= 1),	
+    trainingpenalty integer,	
+    qualificationtime integer check(qualificationtime > 0),	
+    qualificationpos integer check(qualificationpos >= 1),	
+    qualificationpenalty integer,	
+    eliminationtime integer check(eliminationtime > 0),	
+    eliminationpos integer check(eliminationpos >= 1),	
+    eliminationpenalty integer,
+    foreign key(num) references Pilot(num),
+    foreign key(location,edition) references Race(location,edition),
+    primary key(pilot,location,edition),
+    constraint trainingtime check(trainingtime is null or trainingpos is not null),
+    constraint qualificationtime check(qualificationtime is null or qualificationpos is not null),
+    constraint eliminationtime check(eliminationtime is null or eliminationpos is not null)
+);

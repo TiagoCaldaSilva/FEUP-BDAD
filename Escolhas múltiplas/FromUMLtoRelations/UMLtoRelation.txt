@@ -1,0 +1,50 @@
+Given the following diagram, the correct conversion to a relational model is:
+<image>
+
+Alternatives:
+A.
+Person(nif(pk), name)
+R1(X->Player(pk), Y->Player)
+Club(id(pk), address)
+R2(clubId->Club(pk), personId->Person, nr(pk))
+Player(nif->Person(pk), number)
+Team(name(pk))
+Season(year(pk))
+R3(nif->Player(pk), name->Team(pk), year->Season(pk))
+
+B.
+Person(nif(pk), name)
+R1(X->Player(pk), Y->Player)
+Club(id(pk), address)
+R2(clubId->Club(pk), personId->Person(pk), nr)
+Player(nif->Person(pk), number)
+Team(name(pk))
+Season(year(pk))
+R3(number->Player(pk), name->Team(pk), year->Season(pk))
+
+C.
+Person(nif(pk), name)
+R1(X->Player(pk), Y->Player(pk))
+Club(id(pk), address)
+R2(clubId->Club(pk), personId->Person(pk), nr)
+Player(nif->Person(pk), number)
+Team(name(pk))
+Season(year(pk))
+R3(nif->Player(pk), name->Team(pk), year->Season(pk))
+
+D.
+Person(nif(pk), name)
+R1(x->Player(pk), y->Player)
+Club(id(pk), address)
+R2(clubId->Club, personId->Person(pk), nr(pk))
+Player(nif->Person(pk), number)
+Team(name(pk))
+Season(year(pk))
+R3(nif->Player(pk), name->Team(pk), year->Season(pk))
+
+Explanation:
+The option B is wrong because a foreign-key should consist on the attributes that belong to the primary key of the class that we want to referenciate.
+The option C is wrong because the primary key for this relation is only X, due to the multiplicity associated to the X side of the relation.
+The option D is wrong because the same person could have the same number in different clubs. This option implies that a person has different numbers in different clubs.
+
+Correct: A

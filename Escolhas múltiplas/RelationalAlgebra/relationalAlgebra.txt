@@ -1,0 +1,15 @@
+Considering the following script:
+<image>
+
+Alternatives:
+A. The result's number of lines is equal to the number of players with the same name.
+B. The result can have a tuple formed by the same player.
+C. The result is an error.
+D. The result doesn't have a tuple formed by the same player, but contains the tuples (teamA, player1, player2) and (teamA, player2, player1) that give the same information.
+E. The result consists on a table with a team's name and the player's numbers that belong to that team and have the same name. There's not more than a row with the same information.
+
+Explanation:
+The result is an error because the script doesn't specify which table the teamName attribute belongs to (p1 or p2)
+<image>
+
+Correct: C

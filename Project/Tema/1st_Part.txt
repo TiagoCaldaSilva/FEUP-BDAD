@@ -1,0 +1,7 @@
+Netflix&Chill
+Pretendemos criar uma base de dados para um serviço de streaming de filmes e séries.
+De cada Cliente pretendemos guardar o nome, o IBAN, email, password, crédito e estará associado a um tipo de conta e conjunto de perfis.
+Por cada Perfil, o username, propriedades, filmes e séries.
+Cada Filme e Série, associado a um conjunto de realizadores e atores, terá armazenado o nome, características e categorias, ano, idade mínima de visualização e classificação. A Série está associada às suas temporadas e o Filme à sua duração e descrição.
+Por Temporada, guardamos o nome, ano e associamos a Episódios, que guardam o título, duração, descrição e número.
+Por Ator e Realizador guardaremos nome, ID e data de nascimento.

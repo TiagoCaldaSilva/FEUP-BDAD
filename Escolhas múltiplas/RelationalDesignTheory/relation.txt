@@ -1,0 +1,18 @@
+Choose the correct option:
+
+Alternatives:
+A. A relation can only have a primary key.
+B. A candidate key can have null values.
+C. A primary key is a super key, but not a candidate key.
+D. A foreign key can referenciate any attribute, if it is properly identificated (attribute -> Class), as long as there's not any other class with the same attribute.
+E. A prime attribute is an attribute that belongs to the primary key.
+
+Explanation:
+B. Wrong, because a candidate key must not contain null values.
+C. Wrong, because the primary key should be selected from the candidate keys, therefore it's a candidate key.
+D. Wrong, because a foreign key acts as a cross-reference between two tables, referencing the primary key of another table.
+E. Wrong, a prime attribute is an attribute that belongs to a candidate key and not necessarily to the primary key.
+
+Correct: A
+
+https://www.guru99.com/dbms-keys.html#7

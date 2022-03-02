@@ -1,0 +1,21 @@
+Considering that the generalization of the diagram is complete and overlapping, which of the following sentences is/are wrong?
+<image>
+i. A store is supplied by a supplier per company.
+ii. One supplier can be also a client and buy the product that supplies to the store.
+iii. A store buys a product by the price of the supplier's company.
+iv. In the case that a store needs a product, there is always a supplier that can supply that product.
+
+Alternatives:
+A. Only i
+B. Only ii and iii
+C. Only iii and iv
+D. Only i, iii and iv
+E. All of them
+
+Explanation:
+i. Wrong because a store can be supplied by two or more suppliers from the same company. A store can have one or more suppliers regardless of the company that they represent.
+ii. Correct because it is an overlapping generalization. In that case, a client can be either a supplier or a employee, per exemple.
+iii. Wrong because the product's price depends on the supplier and not the company of the supplier. Different suppliers of the same company can sell the same products by different prices.
+iv. Wrong because it is possible to exist a product that can't be supplied by any supplier.
+
+Correct: D
